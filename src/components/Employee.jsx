@@ -14,4 +14,5 @@ class Employee extends Component{
         );
     }
 }
+
 export default Employee;
