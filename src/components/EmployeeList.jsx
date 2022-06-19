@@ -1,30 +1,10 @@
 import React, {Component} from "react";
 import Employee from "./Employee";
+import EmployeeAdd from "./EmployeeAdd";
 
 class EmployeeList extends Component{
     state = {
-        employees : [
-            {
-                id: 1,
-                name: 'John',
-                job: 'CEO'
-            },
-            {
-                id: 2,
-                name: 'Jane',
-                job: 'Manger'
-            },
-            {
-                id: 3,
-                name: 'Michelle',
-                job: 'Programmer'
-            },
-            {
-                id: 4,
-                name: 'Tim',
-                job: 'Disigner'
-            }
-        ]
+        employees : []
     }
 
     fireEmployee = (id)=> {
@@ -36,21 +16,39 @@ class EmployeeList extends Component{
         });
     };
 
+    hireEmployee = employee => {
+        this.setState({
+            employees: [...this.state.employees, employee],
+        }); 
+    }
+
     render(){
         return(
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Job</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {employees.map(employee=> (
-                            <Employee id={employee.id} name={employee.name} job={employee.job} fire={this.fireEmployee} />
-                    ))}
-                </tbody>
-            </table>
+            <>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Job</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.employees.map(employee=> (
+                                <Employee 
+                                    key={employee.id}
+                                    id={employee.id} 
+                                    name={employee.name} 
+                                    job={employee.job} 
+                                    fire={this.fireEmployee} 
+                                />
+                        ))}
+                    </tbody>
+                </table>
+                <hr />
+                <EmployeeAdd 
+                    hire={this.hireEmployee}
+                />
+            </>
         );
     }
 }
