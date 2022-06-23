@@ -30,6 +30,12 @@ class EmployeeList extends Component{
                         <tr>
                             <th>Name</th>
                             <th>Job</th>
+                            <th>Number Employee</th>
+                            <th>Birth Date</th>
+                            <th>Department</th>
+                            <th>Active</th>
+                            <th>Gender</th>
+                            <th>Note</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,7 +44,14 @@ class EmployeeList extends Component{
                                     key={employee.id}
                                     id={employee.id} 
                                     name={employee.name} 
-                                    job={employee.job} 
+                                    job={employee.job}
+                                    number={employee.number} 
+                                    date={employee.date}
+                                    department={employee.department}
+                                    active={employee.active}
+                                    gender={employee.gender}
+                                    note={employee.note}
+            
                                     fire={this.fireEmployee} 
                                 />
                         ))}

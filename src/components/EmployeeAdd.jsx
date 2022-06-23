@@ -4,7 +4,13 @@ class employeeAdd extends Component{
     initialState = {
         id: '',
         name: '',
-        job: ''
+        job: '',
+        number: '',
+        date: '',
+        department: '',
+        active: '',
+        gender: '',
+        note: ''
     }
 
     state = this.initialState;
@@ -24,7 +30,7 @@ class employeeAdd extends Component{
     };
 
     render() {
-        const {id, name, job} = this.state;
+        const {id, name, job, number, date, department, active, gender, note} = this.state;
         return (
             <form onSubmit={this.handleSubmit}>
                 <label htmlFor="id">Id</label>
@@ -52,6 +58,68 @@ class employeeAdd extends Component{
                     id="job" 
                     value={job} 
                     placeholder="Enter job here" 
+                    onChange={this.handleChange} 
+                />
+
+                <label htmlFor="number">Number Employee</label>
+                <input 
+                    type="number" 
+                    name="number" 
+                    id="number" 
+                    value={number} 
+                    placeholder="Enter number here" 
+                    onChange={this.handleChange} 
+                />
+                <label htmlFor="date">Birth Date</label>
+                <input 
+                    type="date" 
+                    name="date" 
+                    id="date" 
+                    value={date} 
+                    placeholder="Enter date here" 
+                    onChange={this.handleChange} 
+                />
+                <label htmlFor="department">Department</label>
+                <select 
+                    name="department" 
+                    id="department" 
+                    placeholder="Enter department here" 
+                    onChange={this.handleChange} 
+                >
+                    <option value="department1">Department 1</option>
+                    <option value="department2">Department 2</option>
+                    <option value="department3">Department 3</option>
+                    <option value="department4">Department 4</option>
+                </select>
+                <label htmlFor="active">Active</label>
+                <input 
+                    type="checkbox" 
+                    name="active" 
+                    id="active" 
+                    value={active} 
+                    placeholder="Enter active here" 
+                    onChange={this.handleChange} 
+                />
+                <label htmlFor="gender">Gender</label>
+                <input 
+                    type="radio" 
+                    name="gender" 
+                    id="male" 
+                    value={gender} 
+                    onChange={this.handleChange} 
+                /> Male<br></br>
+                <input type="radio" 
+                    name="gender" 
+                    id="female" 
+                    value={gender} 
+                    onChange={this.handleChange} 
+                /> Female
+                <label htmlFor="note">Note</label>
+                <textarea  
+                    name="note" 
+                    id="note" 
+                    value={note} 
+                    placeholder="Enter note here" 
                     onChange={this.handleChange} 
                 />
                 <input type="submit" value="Hire" />
