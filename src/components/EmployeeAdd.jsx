@@ -8,8 +8,8 @@ class employeeAdd extends Component{
         number: '',
         date: '',
         department: '',
-        active: '',
-        gender: '',
+        active: false,
+        gender: 'male',
         note: ''
     }
 
@@ -19,6 +19,13 @@ class employeeAdd extends Component{
         const { name, value } = e.target;
         this.setState({
             [name]: value,
+        });
+    }
+
+    handleCheckedChange = e => {
+        const { checked } = e.target;
+        this.setState({
+            active: checked,
         });
     }
     
@@ -82,9 +89,9 @@ class employeeAdd extends Component{
                 <select 
                     name="department" 
                     id="department" 
-                    placeholder="Enter department here" 
                     onChange={this.handleChange} 
                 >
+                    <option value="" selected disabled hidden>Select department here</option>
                     <option value="department1">Department 1</option>
                     <option value="department2">Department 2</option>
                     <option value="department3">Department 3</option>
@@ -96,21 +103,24 @@ class employeeAdd extends Component{
                     name="active" 
                     id="active" 
                     value={active} 
+                    checked={active} 
                     placeholder="Enter active here" 
-                    onChange={this.handleChange} 
+                    onChange={this.handleCheckedChange} 
                 />
                 <label htmlFor="gender">Gender</label>
                 <input 
                     type="radio" 
                     name="gender" 
                     id="male" 
-                    value={gender} 
+                    value="male"
+                    checked={gender === 'male'}
                     onChange={this.handleChange} 
                 /> Male<br></br>
                 <input type="radio"
                     name="gender" 
                     id="female" 
-                    value={gender} 
+                    value="female" 
+                    checked={gender === 'female'}
                     onChange={this.handleChange} 
                 /> Female
                 <label htmlFor="note">Note</label>

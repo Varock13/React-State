@@ -48,7 +48,7 @@ class EmployeeList extends Component{
                                     number={employee.number} 
                                     date={employee.date}
                                     department={employee.department}
-                                    active={employee.active}
+                                    active={employee.active ? "Yes" : "No"}
                                     gender={employee.gender}
                                     note={employee.note}
             
