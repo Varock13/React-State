@@ -60,7 +60,6 @@ class employeeAdd extends Component{
                     placeholder="Enter job here" 
                     onChange={this.handleChange} 
                 />
-
                 <label htmlFor="number">Number Employee</label>
                 <input 
                     type="number" 
@@ -108,7 +107,7 @@ class employeeAdd extends Component{
                     value={gender} 
                     onChange={this.handleChange} 
                 /> Male<br></br>
-                <input type="radio" 
+                <input type="radio"
                     name="gender" 
                     id="female" 
                     value={gender} 
